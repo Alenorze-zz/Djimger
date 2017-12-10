@@ -5,10 +5,10 @@ from .utils import unique_slug_generator
 
 
 class Video(models.Model):
-    name      = models.Charfield(max_length=220)
+    name      = models.CharField(max_length=220)
     slug      = models.SlugField(unique=True, blank=True)
-    embed     = models.Charfield(max_length=120, null=True, blank=True)
-    featured  = models.BooleandField(default=False)
+    embed     = models.CharField(max_length=120, null=True, blank=True)
+    featured  = models.BooleanField(default=False)
     updated   = models.DateTimeField(auto_now=True)
     timestamp = models.DateTimeField(auto_now_add=True)
 

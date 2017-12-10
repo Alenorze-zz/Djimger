@@ -1,3 +1,5 @@
 {
-    "python.pythonPath": "C:\\Program Files\\Python36\\python.exe"
+    "python.pythonPath": "C:\\Program Files\\Python36\\python.exe",
+    "emmet.includeLanguages": "python",
+    "python.venvPath": "backend/src/env",
 }
