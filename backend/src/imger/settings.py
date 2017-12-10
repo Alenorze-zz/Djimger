@@ -49,7 +49,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'tryangular.urls'
+ROOT_URLCONF = 'imger.urls'
 
 TEMPLATES = [
     {
@@ -67,7 +67,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'tryangular.wsgi.application'
+WSGI_APPLICATION = 'imger.wsgi.application'
 
 
 # Database

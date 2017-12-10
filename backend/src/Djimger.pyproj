@@ -18,7 +18,7 @@
     <WorkingDirectory>.</WorkingDirectory>
     <WebBrowserUrl>http://localhost</WebBrowserUrl>
     <LaunchProvider>Django launcher</LaunchProvider>
-    <DjangoSettingsModule>Djimger.settings</DjangoSettingsModule>
+    <DjangoSettingsModule>imger.settings</DjangoSettingsModule>
     <OutputPath>.</OutputPath>
     <SuppressCollectPythonCloudServiceFiles>true</SuppressCollectPythonCloudServiceFiles>
   </PropertyGroup>
@@ -32,17 +32,16 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="manage.py" />
-    <Compile Include="Djimger\__init__.py" />
-    <Compile Include="Djimger\settings.py" />
-    <Compile Include="Djimger\urls.py" />
-    <Compile Include="Djimger\wsgi.py" />
+    <Compile Include="imger\__init__.py" />
+    <Compile Include="imger\settings.py" />
+    <Compile Include="imger\urls.py" />
+    <Compile Include="imger\wsgi.py" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Djimger\" />
+    <Folder Include="imger\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="requirements.txt" />
-    <Content Include="db.sqlite3" />
   </ItemGroup>
   <ItemGroup>
     <None Include="readme.html">
