@@ -5,7 +5,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
 
-const endpoint = '/static/ang/assets/json/videos.json' // http://www.yourdomain.com/api/videos/
+const endpoint = '/api/videos/'
 
 @Injectable()
 export class VideoService {
@@ -41,7 +41,7 @@ export class VideoService {
                                          data.push(item)
                                     }
                                 })
-                     
+
                      return data
                })
               .catch(this.handleError)
