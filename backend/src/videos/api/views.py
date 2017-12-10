@@ -9,6 +9,6 @@ from .serializers import VideoSerializer
 
 class VideoList(generics.ListAPIView):
     queryset               = Video.objects.all()
-    serializers_class      = VideoSerializer
+    serializer_class       = VideoSerializer
     permission_classes     = []
     authentication_classes = []

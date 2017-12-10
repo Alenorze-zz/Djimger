@@ -4,5 +4,5 @@ from .views import VideoList
 
 
 urlpatterns = [
-    url(r'^$', VideoList.as_view(), name='list')
+    url(r'^$', VideoList.as_view(), name='list'),
 ]
