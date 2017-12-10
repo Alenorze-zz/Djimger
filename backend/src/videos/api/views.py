@@ -16,7 +16,7 @@ class VideoList(generics.ListAPIView):
     def get_queryset(self):
         query = self.request.GET.get("q")
         if query:
-            qs = Video.objects.filter(name__icontains=query)
+            qs = Video.objects.filter(query)
         else:
             qs = Video.objects.filter()
         return qs
@@ -40,7 +40,7 @@ class VideoFeatured(generics.ListAPIView):
     def get_queryset(self):
         query = self.request.GET.get("q")
         if query:
-            qs = Video.objects.filter(name__icontains=query).filter(featured=True)
+            qs = Video.objects.filter(featured=True).search(query)
         else:
-            qs = Video.objects.filter(featured=True)
+            qs = Video.objects.filter()
         return qs

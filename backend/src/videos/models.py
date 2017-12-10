@@ -1,16 +1,49 @@
 from django.db import models
+from django.db.models import Q
 from django.db.models.signals import pre_save
 
 from .utils import unique_slug_generator
+
+
+class VideoQuerySet(models.query.QuerySet):
+    def active(self):
+        return self.filter(active=True)
+
+    def featured(self):
+        return self.filter(featured=True)
+
+    def search(self, query):
+        return self.filter(
+                Q(name__icontains=query) |
+                Q(slug__icontains=query) |
+                Q(embed__icontains=query)
+                )
+
+
+class VideoManager(models.Manager):
+    def get_queryset(self):
+        return VideoQuerySet(self.model, using=self.db)
+
+    def all(self):
+        return self.get_queryset().active()
+
+    def featured(self):
+        return self.get_queryset().featured().active()
+
+    def search(self, query):
+        return self.get_queryset().search(query).active()
 
 
 class Video(models.Model):
     name      = models.CharField(max_length=220)
     slug      = models.SlugField(unique=True, blank=True)
     embed     = models.CharField(max_length=120, null=True, blank=True)
+    active    = models.BooleanField(default=True)
     featured  = models.BooleanField(default=False)
     updated   = models.DateTimeField(auto_now=True)
     timestamp = models.DateTimeField(auto_now_add=True)
+
+    objects = VideoManager()
 
     def __str__(self):
         return self.name
