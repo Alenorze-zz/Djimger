@@ -36,12 +36,23 @@
     <Compile Include="imger\settings.py" />
     <Compile Include="imger\urls.py" />
     <Compile Include="imger\wsgi.py" />
+    <Compile Include="videos\admin.py" />
+    <Compile Include="videos\apps.py" />
+    <Compile Include="videos\migrations\__init__.py" />
+    <Compile Include="videos\models.py" />
+    <Compile Include="videos\tests.py" />
+    <Compile Include="videos\views.py" />
+    <Compile Include="videos\__init__.py" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="imger\" />
+    <Folder Include="videos\" />
+    <Folder Include="videos\migrations\" />
+    <Folder Include="videos\templates\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="requirements.txt" />
+    <Content Include="videos\templates\index.html" />
   </ItemGroup>
   <ItemGroup>
     <None Include="readme.html">
