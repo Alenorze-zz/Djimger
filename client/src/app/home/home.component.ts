@@ -1,3 +1,4 @@
+import { VideoItem } from './../videos/video';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { Http } from '@angular/http';
@@ -21,17 +22,9 @@ export class HomeComponent implements OnInit, OnDestroy {
   constructor(private http:Http, private router:Router, private _video:VideoService) { }
 
   ngOnInit() {
-      this.req = this._video.list().subscribe(data=>{
-          //console.log(data.json())
-          //this.homeImageList 
-          data.filter(item=>{
-              if(item.featured){
-                let dataItem = item
-                  this.homeImageList.push(dataItem)
-              }
-          })
-          // this.homeImageList = data.json();
-       })
+      this.req = this._video.featured().subscribe(data => {
+          this.homeImageList = data as [VideoItem];
+       });
   }
 
   ngOnDestroy(){
@@ -45,7 +38,7 @@ export class HomeComponent implements OnInit, OnDestroy {
           //image.link = '/videos'
           //image.prevented = true;
           this.router.navigate(['./videos'])
-          
+
       }
   }
 
