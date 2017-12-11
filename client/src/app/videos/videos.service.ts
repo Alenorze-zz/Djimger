@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { Http, Response } from '@angular/http';
+
+import { Observable } from 'rxjs/Rx';
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
@@ -35,12 +37,15 @@ export class VideoService {
               .catch(this.handleError);
   }
 
-  private handleError(error: any, caught: any): any {
-      if (error.status === 404) {
-        alert('Not found');
-      } else {
-        alert('Something went wrong. Please try again.')
+private handleError (error: Response | any) {
+  let errMsg: string;
+  if (error instanceof Response) {
+     const body = error.json() || '';
+     const err = body.error || JSON.stringify(body);
+     errMsg = `${error.status} - ${error.statusText || '' }`;
+   } else {
+       errMsg = 'Server error occurred please try again.';
       }
+  return Observable.throw(errMsg);
   }
-
 }
