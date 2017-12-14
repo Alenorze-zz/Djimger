@@ -13,7 +13,7 @@ SECRET_KEY = 'y^i6nm#67)^6ap(g69zk1zsvz&_7cr0!_1awm7d5yd)60e&o37'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['djimger.herokuapp.com', '.djimger.com']
 
 
 # Application definition
@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     #Third party
     'rest_framework',
+    'storages',
     #Apps
     'videos',
 ]
