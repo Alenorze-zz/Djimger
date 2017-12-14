@@ -35,13 +35,14 @@ class VideoManager(models.Manager):
 
 
 class Video(models.Model):
-    name      = models.CharField(max_length=220)
-    slug      = models.SlugField(unique=True, blank=True)
-    embed     = models.CharField(max_length=120, null=True, blank=True)
-    active    = models.BooleanField(default=True)
-    featured  = models.BooleanField(default=False)
-    updated   = models.DateTimeField(auto_now=True)
-    timestamp = models.DateTimeField(auto_now_add=True)
+    name       = models.CharField(max_length=220)
+    slug       = models.SlugField(unique=True, blank=True)
+    embed      = models.CharField(max_length=120, null=True, blank=True)
+    image_path = models.CharField(max_length=120, default="/static/ang/assets/images/nature/4.jpg", null=True, blank=True)
+    active     = models.BooleanField(default=True)
+    featured   = models.BooleanField(default=False)
+    updated    = models.DateTimeField(auto_now=True)
+    timestamp  = models.DateTimeField(auto_now_add=True)
 
     objects = VideoManager()
 
